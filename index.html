@@ -365,7 +365,8 @@
         }
 
         .viewer-wrap {
-          min-height: 78vh;
+          height: 100dvh;
+          min-height: auto;
           border-radius: 22px;
         }
 
@@ -375,8 +376,9 @@
         }
 
         .pdf-frame {
-          height: 78vh;
-          min-height: 620px;
+          flex: 1;
+          height: auto;
+          min-height: 0;
         }
       }
 
@@ -482,7 +484,7 @@
         </div>
 
         <div class="actions">
-          <a class="download" href="./portfolio.pdf#view=FitH&navpanes=0" target="_blank" rel="noopener">
+          <a class="download" href="#pdf-container">
             <span aria-hidden="true">⊙</span>
             在线查看作品集
           </a>
