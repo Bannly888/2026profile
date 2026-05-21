@@ -329,6 +329,29 @@
         display: block;
       }
 
+      .pdf-img-wrap {
+        position: relative;
+      }
+
+      .pdf-img-skeleton {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(90deg, #eef1f6 0%, #f6f8fb 45%, #eef1f6 80%);
+        background-size: 200% 100%;
+        animation: pdf-shimmer 1.8s ease-in-out infinite;
+      }
+
+      .pdf-img-wrap img {
+        position: relative;
+        z-index: 2;
+      }
+
+      @keyframes pdf-shimmer {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+
       @keyframes shine {
         0%,
         46% {
@@ -515,34 +538,120 @@
             图片存放于 webp/ 目录，按序号顺序排列。
             ========== 如需增删页面 ==========
             1. 在 webp/ 文件夹中添加/删除对应的 __2x.webp 文件
-            2. 在下方按序号添加/删除一行 <img> 标签即可
-            3. 命名规则：{序号}__2x.webp（如 01__2x.webp）
+            2. 在下方按序号复制一组 .pdf-img-wrap 结构，修改 src 即可
+            3. 每张图片需填写正确的 width 和 height（实际像素尺寸）
+            4. 命名规则：{序号}__2x.webp（如 01__2x.webp）
             当前共 22 页（01～22）
           -->
-          <img src="./webp/01__2x.webp" alt="作品集第 1 页" fetchpriority="high" />
-          <img src="./webp/02__2x.webp" alt="作品集第 2 页" />
-          <img src="./webp/03__2x.webp" alt="作品集第 3 页" />
-          <img src="./webp/04__2x.webp" alt="作品集第 4 页" loading="lazy" />
-          <img src="./webp/05__2x.webp" alt="作品集第 5 页" loading="lazy" />
-          <img src="./webp/06__2x.webp" alt="作品集第 6 页" loading="lazy" />
-          <img src="./webp/07__2x.webp" alt="作品集第 7 页" loading="lazy" />
-          <img src="./webp/08__2x.webp" alt="作品集第 8 页" loading="lazy" />
-          <img src="./webp/09__2x.webp" alt="作品集第 9 页" loading="lazy" />
-          <img src="./webp/10__2x.webp" alt="作品集第 10 页" loading="lazy" />
-          <img src="./webp/11__2x.webp" alt="作品集第 11 页" loading="lazy" />
-          <img src="./webp/12_app_1_2x.webp" alt="作品集第 12 页" loading="lazy" />
-          <img src="./webp/13__2x.webp" alt="作品集第 13 页" loading="lazy" />
-          <img src="./webp/14__2x.webp" alt="作品集第 14 页" loading="lazy" />
-          <img src="./webp/15_ai__2x.webp" alt="作品集第 15 页" loading="lazy" />
-          <img src="./webp/16__2x.webp" alt="作品集第 16 页" loading="lazy" />
-          <img src="./webp/17__2x.webp" alt="作品集第 17 页" loading="lazy" />
-          <img src="./webp/18__2x.webp" alt="作品集第 18 页" loading="lazy" />
-          <img src="./webp/19__2x.webp" alt="作品集第 19 页" loading="lazy" />
-          <img src="./webp/20__2x.webp" alt="作品集第 20 页" loading="lazy" />
-          <img src="./webp/21_banner__2x.webp" alt="作品集第 21 页" loading="lazy" />
-          <img src="./webp/22__2x.webp" alt="作品集第 22 页" loading="lazy" />
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/01__2x.webp" alt="作品集第 1 页" width="3840" height="2160" fetchpriority="high" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/02__2x.webp" alt="作品集第 2 页" width="3840" height="2160" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/03__2x.webp" alt="作品集第 3 页" width="3840" height="2160" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/04__2x.webp" alt="作品集第 4 页" width="3840" height="3134" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/05__2x.webp" alt="作品集第 5 页" width="3840" height="2294" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/06__2x.webp" alt="作品集第 6 页" width="3840" height="5306" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/07__2x.webp" alt="作品集第 7 页" width="3840" height="4618" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/08__2x.webp" alt="作品集第 8 页" width="3840" height="9000" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/09__2x.webp" alt="作品集第 9 页" width="3840" height="6806" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/10__2x.webp" alt="作品集第 10 页" width="3840" height="3084" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/11__2x.webp" alt="作品集第 11 页" width="3840" height="7552" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/12_app_1_2x.webp" alt="作品集第 12 页" width="3840" height="16383" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/13__2x.webp" alt="作品集第 13 页" width="3840" height="3472" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/14__2x.webp" alt="作品集第 14 页" width="3840" height="8356" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/15_ai__2x.webp" alt="作品集第 15 页" width="3840" height="4500" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/16__2x.webp" alt="作品集第 16 页" width="3840" height="9188" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/17__2x.webp" alt="作品集第 17 页" width="3840" height="3610" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/18__2x.webp" alt="作品集第 18 页" width="3840" height="3134" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/19__2x.webp" alt="作品集第 19 页" width="3840" height="10800" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/20__2x.webp" alt="作品集第 20 页" width="3840" height="4722" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/21_banner__2x.webp" alt="作品集第 21 页" width="3840" height="2160" loading="lazy" />
+          </div>
+          <div class="pdf-img-wrap">
+            <div class="pdf-img-skeleton"></div>
+            <img src="./webp/22__2x.webp" alt="作品集第 22 页" width="3840" height="2160" loading="lazy" />
+          </div>
         </div>
       </section>
     </main>
+    <script>
+      (function() {
+        if (window.location.hash === '#pdf-container') {
+          window.scrollTo(0, 0);
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+        var imgs = document.querySelectorAll('#pdf-container .pdf-img-wrap img');
+        imgs.forEach(function(img) {
+          img.onload = function() {
+            var skeleton = img.parentNode.querySelector('.pdf-img-skeleton');
+            if (skeleton) skeleton.remove();
+          };
+          if (img.complete) {
+            var skeleton = img.parentNode.querySelector('.pdf-img-skeleton');
+            if (skeleton) skeleton.remove();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
