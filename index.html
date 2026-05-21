@@ -63,7 +63,7 @@
         top: 24px;
         align-self: start;
         min-height: calc(100vh - 48px);
-        padding: 24px;
+        padding: 20px 20px 24px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -138,11 +138,11 @@
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
-        margin: 24px 0 0;
+        margin: 16px 0 0;
       }
 
       .tag {
-        padding: 8px 10px;
+        padding: 8px 14px;
         border: 1px solid var(--line);
         border-radius: 999px;
         color: #323849;
@@ -193,6 +193,7 @@
         overflow-wrap: anywhere;
         font-size: 14px;
         font-weight: 750;
+        text-decoration: none;
       }
 
       .download {
@@ -200,7 +201,6 @@
         isolation: isolate;
         width: 100%;
         min-height: 56px;
-        margin-top: 28px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -422,6 +422,25 @@
         }
       }
 
+      @media (min-width: 941px) {
+        .actions .download:first-child {
+          display: none;
+        }
+      }
+
+      @supports (-webkit-touch-callout: none) {
+        .viewer-wrap {
+          display: none !important;
+        }
+      }
+
+      .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 28px;
+      }
+
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
@@ -439,14 +458,13 @@
       <aside class="profile" aria-label="个人简介">
         <div>
           <div class="brand-row">
-            <div class="logo" aria-hidden="true">UX</div>
-            <div class="status">Available for interview</div>
+            <div class="logo" aria-hidden="true">UI</div>
           </div>
 
           <section class="hero">
             <p class="eyebrow">Portfolio PDF</p>
             <h1>李佳诚</h1>
-            <p class="role">UI/UX 设计师，关注产品体验、交互设计、视觉表达与增长场景中的设计落地。</p>
+            <p class="role">5年+ UI/UX 经验，具备从 0 到 1 构建设计体系的全链路执行力。精通需求拆解至视觉还原的完整闭环，擅长以 AI工具 赋能工作流，实现视觉资产的高效产出。具备极强的自驱力与前沿技术洞察，性格开朗善于沟通，能快速融入并驱动跨团队协同，助力目标达成。</p>
             <div class="tags" aria-label="专业方向">
               <span class="tag">UI/UX Design</span>
               <span class="tag">AIGC</span>
@@ -471,12 +489,15 @@
           </section>
         </div>
 
-        <div>
+        <div class="actions">
+          <a class="download" href="./portfolio.pdf#view=FitH&navpanes=0" target="_blank" rel="noopener">
+            <span aria-hidden="true">⊙</span>
+            在线查看作品集
+          </a>
           <a class="download" href="./portfolio.pdf" download="李佳诚-UIUX作品集.pdf">
             <span aria-hidden="true">↓</span>
-            下载 PDF 简历
+            下载PDF作品集
           </a>
-          <p class="note">页面不依赖外部字体、图标或脚本，适合部署到国内 CDN/对象存储以提升大文件访问速度。</p>
         </div>
       </aside>
 
