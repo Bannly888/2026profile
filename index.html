@@ -132,6 +132,7 @@
         color: var(--muted);
         font-size: 17px;
         line-height: 1.65;
+        text-align: justify;
       }
 
       .tags {
@@ -318,17 +319,14 @@
         min-height: 720px;
         border: 0;
         background: #eef1f6;
+        overflow-y: auto;
+        position: relative;
       }
 
-      .fallback {
-        padding: 24px;
-        color: var(--muted);
-        line-height: 1.7;
-      }
-
-      .fallback a {
-        color: #d9365f;
-        font-weight: 800;
+      .pdf-frame img {
+        width: 100%;
+        height: auto;
+        display: block;
       }
 
       @keyframes shine {
@@ -428,12 +426,6 @@
         }
       }
 
-      @supports (-webkit-touch-callout: none) {
-        .viewer-wrap {
-          display: none !important;
-        }
-      }
-
       .actions {
         display: flex;
         flex-direction: column;
@@ -514,18 +506,40 @@
           </a>
         </div>
 
-        <object
-          class="pdf-frame"
-          data="./portfolio.pdf#view=FitH&navpanes=0"
-          type="application/pdf"
-          aria-label="PDF 简历预览"
-        >
-          <div class="fallback">
-            当前浏览器无法直接嵌入 PDF。
-            <a href="./portfolio.pdf#view=FitH&navpanes=0" target="_blank" rel="noopener">点击这里在线打开</a>
-            或使用左侧按钮下载 PDF 简历。
-          </div>
-        </object>
+        <div class="pdf-frame" id="pdf-container">
+          <!--
+            作品集 WebP 图片列表
+            ──────────────────────
+            图片存放于 webp/ 目录，按序号顺序排列。
+            ========== 如需增删页面 ==========
+            1. 在 webp/ 文件夹中添加/删除对应的 __2x.webp 文件
+            2. 在下方按序号添加/删除一行 <img> 标签即可
+            3. 命名规则：{序号}__2x.webp（如 01__2x.webp）
+            当前共 22 页（01～22）
+          -->
+          <img src="./webp/01__2x.webp" alt="作品集第 1 页" loading="lazy" />
+          <img src="./webp/02__2x.webp" alt="作品集第 2 页" loading="lazy" />
+          <img src="./webp/03__2x.webp" alt="作品集第 3 页" loading="lazy" />
+          <img src="./webp/04__2x.webp" alt="作品集第 4 页" loading="lazy" />
+          <img src="./webp/05__2x.webp" alt="作品集第 5 页" loading="lazy" />
+          <img src="./webp/06__2x.webp" alt="作品集第 6 页" loading="lazy" />
+          <img src="./webp/07__2x.webp" alt="作品集第 7 页" loading="lazy" />
+          <img src="./webp/08__2x.webp" alt="作品集第 8 页" loading="lazy" />
+          <img src="./webp/09__2x.webp" alt="作品集第 9 页" loading="lazy" />
+          <img src="./webp/10__2x.webp" alt="作品集第 10 页" loading="lazy" />
+          <img src="./webp/11__2x.webp" alt="作品集第 11 页" loading="lazy" />
+          <img src="./webp/12_app_1_2x.webp" alt="作品集第 12 页" loading="lazy" />
+          <img src="./webp/13__2x.webp" alt="作品集第 13 页" loading="lazy" />
+          <img src="./webp/14__2x.webp" alt="作品集第 14 页" loading="lazy" />
+          <img src="./webp/15_ai__2x.webp" alt="作品集第 15 页" loading="lazy" />
+          <img src="./webp/16__2x.webp" alt="作品集第 16 页" loading="lazy" />
+          <img src="./webp/17__2x.webp" alt="作品集第 17 页" loading="lazy" />
+          <img src="./webp/18__2x.webp" alt="作品集第 18 页" loading="lazy" />
+          <img src="./webp/19__2x.webp" alt="作品集第 19 页" loading="lazy" />
+          <img src="./webp/20__2x.webp" alt="作品集第 20 页" loading="lazy" />
+          <img src="./webp/21_banner__2x.webp" alt="作品集第 21 页" loading="lazy" />
+          <img src="./webp/22__2x.webp" alt="作品集第 22 页" loading="lazy" />
+        </div>
       </section>
     </main>
   </body>
