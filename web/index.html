@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="李佳诚 UI/UX 设计师作品集在线预览与 PDF 下载。" />
+    <title>李佳诚 UI/UX 设计师作品集</title>
+    <style>
+      :root {
+        --bg: #f7f8fb;
+        --panel: rgba(255, 255, 255, 0.88);
+        --text: #14161f;
+        --muted: #626979;
+        --line: rgba(20, 22, 31, 0.1);
+        --cyan: #19c2c2;
+        --red: #ff476f;
+        --yellow: #ffd166;
+        --green: #39d98a;
+        --shadow: 0 24px 70px rgba(18, 24, 40, 0.12);
+        color-scheme: light;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-height: 100%;
+        background: var(--bg);
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        color: var(--text);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+          sans-serif;
+        letter-spacing: 0;
+        background:
+          radial-gradient(circle at 8% 10%, rgba(25, 194, 194, 0.16), transparent 32rem),
+          radial-gradient(circle at 90% 8%, rgba(255, 71, 111, 0.14), transparent 28rem),
+          linear-gradient(135deg, #fbfcff 0%, #f4f7fb 52%, #fff9f6 100%);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        width: min(1500px, calc(100% - 32px));
+        min-height: 100vh;
+        margin: 0 auto;
+        padding: 24px 0;
+        display: grid;
+        grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+        gap: 22px;
+      }
+
+      .profile {
+        position: sticky;
+        top: 24px;
+        align-self: start;
+        min-height: calc(100vh - 48px);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 24px;
+        background:
+          linear-gradient(160deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.72)),
+          linear-gradient(135deg, rgba(25, 194, 194, 0.13), rgba(255, 71, 111, 0.09));
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+      }
+
+      .brand-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .logo {
+        width: 46px;
+        height: 46px;
+        display: grid;
+        place-items: center;
+        flex: 0 0 auto;
+        border-radius: 16px;
+        color: #fff;
+        font-weight: 800;
+        background: linear-gradient(135deg, #14161f, #262a3a);
+        box-shadow: 0 16px 34px rgba(20, 22, 31, 0.18);
+      }
+
+      .status {
+        padding: 8px 11px;
+        border: 1px solid rgba(57, 217, 138, 0.35);
+        border-radius: 999px;
+        color: #0f7f55;
+        font-size: 12px;
+        font-weight: 700;
+        background: rgba(57, 217, 138, 0.12);
+        white-space: nowrap;
+      }
+
+      .hero {
+        margin-top: 42px;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--red);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(34px, 5vw, 54px);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      .role {
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.65;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 24px 0 0;
+      }
+
+      .tag {
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: #323849;
+        font-size: 12px;
+        font-weight: 700;
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .contact {
+        margin-top: 34px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .contact-item {
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        gap: 12px;
+        align-items: center;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.64);
+      }
+
+      .icon {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        background: #14161f;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .contact-label {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .contact-value {
+        display: block;
+        margin-top: 2px;
+        overflow-wrap: anywhere;
+        font-size: 14px;
+        font-weight: 750;
+      }
+
+      .download {
+        position: relative;
+        isolation: isolate;
+        width: 100%;
+        min-height: 56px;
+        margin-top: 28px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        overflow: hidden;
+        border: 0;
+        border-radius: 18px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 850;
+        background: linear-gradient(135deg, #14161f 0%, #262a3a 45%, #ff476f 100%);
+        box-shadow: 0 18px 42px rgba(255, 71, 111, 0.22);
+        transform: translateY(0);
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .download::before {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        content: "";
+        background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.38) 42%, transparent 62%);
+        transform: translateX(-120%);
+        animation: shine 3.2s ease-in-out infinite;
+      }
+
+      .download:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 24px 52px rgba(255, 71, 111, 0.3);
+      }
+
+      .note {
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.65;
+      }
+
+      .viewer-wrap {
+        min-width: 0;
+        min-height: calc(100vh - 48px);
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgba(255, 255, 255, 0.78);
+        border-radius: 24px;
+        overflow: hidden;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(16px);
+      }
+
+      .viewer-topbar {
+        min-height: 64px;
+        padding: 14px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.82);
+      }
+
+      .window-dots {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+      }
+
+      .dot:nth-child(1) {
+        background: var(--red);
+      }
+
+      .dot:nth-child(2) {
+        background: var(--yellow);
+      }
+
+      .dot:nth-child(3) {
+        background: var(--green);
+      }
+
+      .viewer-title {
+        min-width: 0;
+        color: #343a48;
+        font-size: 14px;
+        font-weight: 800;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .open-link {
+        flex: 0 0 auto;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        border-radius: 13px;
+        color: #14161f;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 800;
+        background: rgba(255, 255, 255, 0.68);
+      }
+
+      .pdf-frame {
+        width: 100%;
+        height: calc(100vh - 112px);
+        min-height: 720px;
+        border: 0;
+        background: #eef1f6;
+      }
+
+      .fallback {
+        padding: 24px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .fallback a {
+        color: #d9365f;
+        font-weight: 800;
+      }
+
+      @keyframes shine {
+        0%,
+        46% {
+          transform: translateX(-120%);
+        }
+        72%,
+        100% {
+          transform: translateX(120%);
+        }
+      }
+
+      @media (max-width: 940px) {
+        .shell {
+          width: min(100% - 22px, 760px);
+          padding: 11px 0;
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .profile {
+          position: relative;
+          top: auto;
+          min-height: auto;
+          padding: 18px;
+          border-radius: 22px;
+        }
+
+        .hero {
+          margin-top: 24px;
+        }
+
+        .contact {
+          margin-top: 22px;
+        }
+
+        .viewer-wrap {
+          min-height: 78vh;
+          border-radius: 22px;
+        }
+
+        .viewer-topbar {
+          min-height: 58px;
+          padding: 12px;
+        }
+
+        .pdf-frame {
+          height: 78vh;
+          min-height: 620px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .shell {
+          width: 100%;
+          padding: 0;
+        }
+
+        .profile,
+        .viewer-wrap {
+          border-radius: 0;
+          border-left: 0;
+          border-right: 0;
+        }
+
+        .brand-row {
+          align-items: flex-start;
+        }
+
+        h1 {
+          font-size: 36px;
+        }
+
+        .role {
+          font-size: 15px;
+        }
+
+        .viewer-title {
+          max-width: 46vw;
+        }
+
+        .open-link {
+          padding: 9px 10px;
+          font-size: 12px;
+        }
+
+        .pdf-frame {
+          height: 74vh;
+          min-height: 560px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <aside class="profile" aria-label="个人简介">
+        <div>
+          <div class="brand-row">
+            <div class="logo" aria-hidden="true">UX</div>
+            <div class="status">Available for interview</div>
+          </div>
+
+          <section class="hero">
+            <p class="eyebrow">Portfolio PDF</p>
+            <h1>李佳诚</h1>
+            <p class="role">UI/UX 设计师，关注产品体验、交互设计、视觉表达与增长场景中的设计落地。</p>
+            <div class="tags" aria-label="专业方向">
+              <span class="tag">UI/UX Design</span>
+              <span class="tag">AIGC</span>
+            </div>
+          </section>
+
+          <section class="contact" aria-label="联系方式">
+            <div class="contact-item">
+              <span class="icon" aria-hidden="true">@</span>
+              <span>
+                <span class="contact-label">Email</span>
+                <a class="contact-value" href="mailto:2371669322@qq.com">2371669322@qq.com</a>
+              </span>
+            </div>
+            <div class="contact-item">
+              <span class="icon" aria-hidden="true">☎</span>
+              <span>
+                <span class="contact-label">Phone / WeChat</span>
+                <span class="contact-value">15012755223 / Bann8118</span>
+              </span>
+            </div>
+          </section>
+        </div>
+
+        <div>
+          <a class="download" href="./portfolio.pdf" download="李佳诚-UIUX作品集.pdf">
+            <span aria-hidden="true">↓</span>
+            下载 PDF 简历
+          </a>
+          <p class="note">页面不依赖外部字体、图标或脚本，适合部署到国内 CDN/对象存储以提升大文件访问速度。</p>
+        </div>
+      </aside>
+
+      <section class="viewer-wrap" aria-label="PDF 在线预览">
+        <div class="viewer-topbar">
+          <div class="window-dots" aria-hidden="true">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="viewer-title">李佳诚 UI/UX 作品集</div>
+          <a class="open-link" href="./portfolio.pdf#view=FitH&navpanes=0" target="_blank" rel="noopener">
+            新窗口打开
+          </a>
+        </div>
+
+        <object
+          class="pdf-frame"
+          data="./portfolio.pdf#view=FitH&navpanes=0"
+          type="application/pdf"
+          aria-label="PDF 简历预览"
+        >
+          <div class="fallback">
+            当前浏览器无法直接嵌入 PDF。
+            <a href="./portfolio.pdf#view=FitH&navpanes=0" target="_blank" rel="noopener">点击这里在线打开</a>
+            或使用左侧按钮下载 PDF 简历。
+          </div>
+        </object>
+      </section>
+    </main>
+  </body>
+</html>
